@@ -1,0 +1,22 @@
+{
+    "inputs": [
+        {
+            "name": "title",
+            "inputType": "text",
+            "isTextArea": false,
+            "placeholder": "Type title here..."
+        },
+        {
+            "name": "url",
+            "inputType": "text",
+            "isTextArea": false,
+            "placeholder": "Type url here..."
+        },
+        {
+            "name": "description",
+            "inputType": "text",
+            "isTextArea": true,
+            "placeholder": "Type description here..."
+        }
+    ]
+}

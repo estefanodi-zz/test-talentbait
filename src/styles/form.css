@@ -1,0 +1,98 @@
+.form-container {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.form-header {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 0;
+}
+
+.buttons-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1em 0;
+}
+
+/* =======  MESSAGE  ======= */
+.message {
+  width: 40vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 0 2em;
+  position: absolute;
+  top: 20px;
+  left: calc(100vw / 2 - 20vw);
+  letter-spacing: 6%;
+  font-size: 1rem;
+  color: gray;
+  border-radius: 5px;
+  opacity: 1;
+  box-sizing: border-box;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.message span {
+    margin-left: 2em;
+    font-size: 1.5rem;
+}
+
+.error-message {
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+}
+
+.success-message {
+    background-color: #f6ffed;
+    border: 1px solid #b7eb8f;
+}
+
+.message-icon {
+  font-size: 25px;
+}
+
+/* =======  IMAGES  ======= */
+
+.images-container {
+  width: 80%;
+  height: 15vh;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1.5em;
+  margin-bottom: 0.3em;
+  grid-gap: 1em;
+}
+
+.images-container img{
+  border: 1px solid gray;
+  width: 100%;
+  align-self: center;
+}

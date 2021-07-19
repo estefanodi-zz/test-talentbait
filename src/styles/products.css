@@ -1,0 +1,58 @@
+.products-container {
+  width: 90vw;
+  min-height: 90vh;
+  margin-left: 5vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 2em;
+  box-sizing: border-box;
+  grid-gap: 3em;
+}
+
+.card {
+  height: 50vh;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  height: 50%;
+}
+
+.card h3 {
+  align-self: center;
+  height: 10%;
+}
+
+.breadcrumb {
+  border-top: 0.5px solid #ddd;
+  border-bottom: 0.5px solid #ddd;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  position: relative;
+}
+
+.description-container {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background-color: rgb(245, 245, 245);
+  padding: 5%;
+  box-sizing: border-box;
+  text-align: justify;
+  border: 1px solid #ddd;
+}
+
+.card-footer {
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+}
