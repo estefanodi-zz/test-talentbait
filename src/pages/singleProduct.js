@@ -33,7 +33,7 @@ export default function SingleProduct({ history, match }) {
         />
       )}
       {ads.map((ad) => (
-        <Ad history={history} setOverlayVisible={setOverlayVisible} />
+        <Ad setOverlayVisible={setOverlayVisible} />
       ))}
       <div className="add-ad" onClick={() => history.push("/createAd")}>
         <IoMdAddCircleOutline size={120} className={"add-ad-icon"} />

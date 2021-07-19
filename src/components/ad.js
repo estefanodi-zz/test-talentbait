@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
 
 // import { FaFacebook } from "react-icons/fa";
@@ -22,7 +23,7 @@ const footerContent = [
   },
 ];
 
-export default function Ad({ history, setOverlayVisible }) {
+function Ad({ history, setOverlayVisible }) {
   return (
     <div>
       <div className="ad-container">
@@ -55,6 +56,8 @@ export default function Ad({ history, setOverlayVisible }) {
     </div>
   );
 }
+
+export default withRouter(Ad);
 
 Ad.propTypes = {
   history: PropTypes.object,

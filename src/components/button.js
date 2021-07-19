@@ -13,9 +13,10 @@ export default function Button({
   icon = null,
   action,
   className,
+  disabled
 }) {
   return (
-    <button type={type} className={className} onClick={() => action()}>
+    <button type={type} className={className} onClick={() => action()} disabled={disabled}>
       {titleType === "text" ? title : iconSelector[icon]}
     </button>
   );
@@ -28,6 +29,7 @@ Button.propTypes = {
   icon: PropTypes.string,
   action: PropTypes.func,
   className: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -37,4 +39,5 @@ Button.defaultProps = {
   icon: "upload",
   action: () => {},
   className: "",
+  disabled: false
 };

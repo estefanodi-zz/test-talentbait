@@ -18,7 +18,11 @@ export default function Product({
     <div className="card">
       <img src={productImage} alt={productName} />
       <h3>{productName}</h3>
-      <div className="breadcrumb" onClick={() => setDesVisible(!desVisible)}>
+      <div
+        className="breadcrumb"
+        onMouseEnter={() => setDesVisible(!desVisible)}
+        onMouseLeave={() => setDesVisible(!desVisible)}
+      >
         <span>Description</span>
         {!desVisible ? (
           <BsChevronUp color={"gray"} />
@@ -54,9 +58,10 @@ Product.propTypes = {
 };
 
 Product.defaultProps = {
-  productName: 'Name not available',
-  productDescription: 'Description not available',
-  productImage: 'https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png',
+  productName: "Name not available",
+  productDescription: "Description not available",
+  productImage:
+    "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
   price: 0,
   history: {},
 };

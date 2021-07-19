@@ -6,6 +6,7 @@ import { validate } from "../helpers/validateForm";
 
 import Button from "../components/button";
 import Message from "../components/message";
+import ImagesPreview from "../components/imagesPreview"
 
 import "../styles/form.css";
 import { widgetStyle } from "../styles/widgetstyles";
@@ -16,14 +17,12 @@ const initial = {
   url: "",
 };
 
-const placeholder = 'https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png'
-
 export default function Form({ formType, match }) {
   const [formData, setFormData] = useState(initial);
   const [images, setImages] = useState([
-    { publicId: "", secureUrl: "", id: 1 },
-    { publicId: "", secureUrl: "", id: 2 },
-    { publicId: "", secureUrl: "", id: 3 },
+    { public_id: "", secure_url: "", id: 1 },
+    { public_id: "", secure_url: "", id: 2 },
+    { public_id: "", secure_url: "", id: 3 },
   ]);
   const inputsSelector = {
     create: createInputs.inputs,
@@ -81,12 +80,25 @@ export default function Form({ formType, match }) {
         if (error) {
           console.error("Cloudinary error");
         } else {
-          console.log("result ===>", result[0]);
-          setImages([]);
+          console.log('result ===>',result[0])
+          const temp = [...images];
+          const index = temp.findIndex( obj => !obj.secure_url)
+          temp[index] = {
+            secure_url: result[0].secure_url,
+            public_id: result[0].public_id
+          }
+          console.log('temp ===>',temp)
+          setImages(temp);
         }
       }
     );
   };
+  //*=======================================================================
+  //*========================  DELETE IMAGE  ===============================
+  //*=======================================================================
+  const deleteImage = () => {
+
+  }
   return (
     <div className="form-container">
       {message.isVisible && <Message text={message.text} icon={message.icon} />}
@@ -125,12 +137,8 @@ export default function Form({ formType, match }) {
             </>
           );
         })}
-        <div className="images-container">
-          {images.map((obj) => (
-            <img src={obj.secureUrl || placeholder} alt={"ad image"} />
-          ))}
-        </div>
-        <div className="buttons-container">
+        <ImagesPreview images={images} deleteImage={deleteImage}/>
+        <div className="form-buttons-container">
           <Button
             title={"Submit"}
             type={"submit"}
@@ -142,8 +150,9 @@ export default function Form({ formType, match }) {
             titleType={"icon"}
             icon={"upload"}
             type={"button"}
-            className={"form-button"}
+            className={"upload-button"}
             action={uploadWidget}
+            disabled={images.filter((obj) => obj.secure_url).length === 3}
           />
         </div>
       </form>

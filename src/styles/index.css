@@ -19,7 +19,7 @@ nav a {
 }
 
 .active-link {
-    color: red;
+   text-decoration: underline;
 }
 
 /* ========  BUTTONS  ======== */
@@ -40,6 +40,14 @@ button {
     background-color: rgb(200, 109, 127);
     color: white;
     font-size: 1rem;
+    width: 60%;
+}
+
+.upload-button {
+    background-color: rgb(200, 109, 127);
+    color: white;
+    font-size: 1rem;
+    width: 35%;
 }
 
 .confirm-button {
