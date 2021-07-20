@@ -1,11 +1,12 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
 import { BsChevronUp, BsChevronDown } from "react-icons/bs";
 
 import Button from "../components/button";
 
-export default function Product({
+function Product({
   productName,
   productDescription,
   productImage,
@@ -44,10 +45,11 @@ export default function Product({
         />
         <span>€ {price}</span>
       </div>
-      {/* <p>{productDescription}</p> */}
     </div>
   );
 }
+
+export default withRouter(Product);
 
 Product.propTypes = {
   productName: PropTypes.string,

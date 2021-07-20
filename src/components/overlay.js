@@ -5,12 +5,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import Button from "../components/button";
 
-export default function Overlay({
-  title,
-  message,
-  setOverlayVisible,
-  deleteAd,
-}) {
+export default function Overlay({ title, message, closeOverlay }) {
   return (
     <div className="overlay">
       <div className="overlay-box">
@@ -22,7 +17,7 @@ export default function Overlay({
           <AiOutlineClose
             size={25}
             color={"gray"}
-            onClick={() => setOverlayVisible(false)}
+            onClick={() => closeOverlay(false)}
           />
         </div>
         <div className="overlay-box-main">
@@ -33,13 +28,13 @@ export default function Overlay({
             title={"Cancel"}
             className={"cancel-button"}
             type={"button"}
-            action={() => setOverlayVisible(false)}
+            action={() => closeOverlay(false)}
           />
           <Button
             title={"Confirm"}
             className={"confirm-button"}
             type={"button"}
-            action={() => deleteAd()}
+            action={() => closeOverlay(true)}
           />
         </div>
       </div>
@@ -50,13 +45,11 @@ export default function Overlay({
 Overlay.propTypes = {
   title: PropTypes.string,
   message: PropTypes.string,
-  setOverlayVisible: PropTypes.func,
-  deleteAd: PropTypes.func,
+  closeOverlay: PropTypes.func,
 };
 
 Overlay.defaultProps = {
   title: "Default Title",
   message: "Default Message",
-  setOverlayVisible: () => {},
-  deleteAd: () => {},
+  closeOverlay: () => console.log("Default closeOverlay"),
 };

@@ -1,42 +1,51 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import createInputs from "../utils/forms/createForm.json";
+import createForm from "../utils/forms/createForm.json";
+import updateForm from "../utils/forms/updateForm.json";
+
 import { validate } from "../helpers/validateForm";
 
 import Button from "../components/button";
 import Message from "../components/message";
-import ImagesPreview from "../components/imagesPreview"
+import ImagesPreview from "../components/imagesPreview";
 
 import "../styles/form.css";
 import { widgetStyle } from "../styles/widgetstyles";
 
-const initial = {
-  title: "",
-  description: "",
-  url: "",
-};
-
-export default function Form({ formType, match }) {
-  const [formData, setFormData] = useState(initial);
+export default function Form({ formType, match, method, ads }) {
+  const initial = {
+    title: "",
+    description: "",
+    url: "",
+    productName: match.params.productName,
+  };
+  const [formData, setFormData] = useState(formType === "create" && initial);
   const [images, setImages] = useState([
+    { public_id: "", secure_url: "", id: 0 },
     { public_id: "", secure_url: "", id: 1 },
     { public_id: "", secure_url: "", id: 2 },
-    { public_id: "", secure_url: "", id: 3 },
   ]);
   const inputsSelector = {
-    create: createInputs.inputs,
+    create: createForm.inputs,
+    update: updateForm.inputs,
   };
   const [message, setMessage] = useState({
     isVisible: false,
     text: "",
     icon: "error",
   });
+
   useEffect(() => {
-    if (formType === "update") {
-      console.log("update");
+    if (formType === "update" && ads.length !== 0) {
+      const ad = ads.find((ad) => ad.productName === match.params.productName);
+      const tempImages = [...images];
+      ad.images.forEach((im, idx) => (tempImages[idx] = im));
+      setImages(tempImages);
+      delete ad.images;
+      setFormData(ad);
     }
-  }, [formType]);
+  }, [formType, ads]);
   //*=======================================================================
   //*======================  SUBMIT FORM  ==================================
   //*=======================================================================
@@ -57,7 +66,8 @@ export default function Form({ formType, match }) {
         text: "You can upload maximum 5 images",
         icon: "error",
       });
-    //! ADD THE AD HERE AT THIS POINT
+    method({ ...formData, images });
+
     setFormData(initial);
     return setMessage({
       isVisible: true,
@@ -80,14 +90,12 @@ export default function Form({ formType, match }) {
         if (error) {
           console.error("Cloudinary error");
         } else {
-          console.log('result ===>',result[0])
           const temp = [...images];
-          const index = temp.findIndex( obj => !obj.secure_url)
+          const index = temp.findIndex((obj) => !obj.secure_url);
           temp[index] = {
             secure_url: result[0].secure_url,
-            public_id: result[0].public_id
-          }
-          console.log('temp ===>',temp)
+            public_id: result[0].public_id,
+          };
           setImages(temp);
         }
       }
@@ -96,15 +104,24 @@ export default function Form({ formType, match }) {
   //*=======================================================================
   //*========================  DELETE IMAGE  ===============================
   //*=======================================================================
-  const deleteImage = () => {
-
-  }
+  const deleteImage = (public_id) => {
+    const temp = [...images];
+    const index = temp.findIndex((im) => im.public_id === public_id);
+    temp[index] = { public_id: "", secure_url: "", id: index };
+    setImages(temp);
+    //! MISSING DELETING IMAGE FROM CLOUDINARY
+  };
+  //*=======================================================================
+  //*============================  RENDER  =================================
+  //*=======================================================================
   return (
     <div className="form-container">
       {message.isVisible && <Message text={message.text} icon={message.icon} />}
 
       <form onSubmit={handleSubmit}>
-        <div className="form-header">Create Form</div>
+        <div className="form-header">
+          {formType === "create" ? "Create Form" : "Update Form"}
+        </div>
         {inputsSelector[formType].map((inp) => {
           return (
             <>
@@ -137,7 +154,7 @@ export default function Form({ formType, match }) {
             </>
           );
         })}
-        <ImagesPreview images={images} deleteImage={deleteImage}/>
+        <ImagesPreview images={images} deleteImage={deleteImage} />
         <div className="form-buttons-container">
           <Button
             title={"Submit"}
@@ -162,8 +179,14 @@ export default function Form({ formType, match }) {
 
 Form.propTypes = {
   formType: PropTypes.string,
+  match: PropTypes.object,
+  method: PropTypes.func,
+  ads: PropTypes.array,
 };
 
 Form.defaultProps = {
   formType: "create",
+  match: {},
+  method: () => console.log("Default form method"),
+  ads: [],
 };

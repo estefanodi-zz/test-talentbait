@@ -5,9 +5,7 @@ import { RiCheckboxCircleFill } from "react-icons/ri";
 
 const iconSelector = {
   error: <AiFillCloseCircle className="message-icon" color={"red"} />,
-  success: (
-    <RiCheckboxCircleFill className="message-icon" color={"green"} />
-  ),
+  success: <RiCheckboxCircleFill className="message-icon" color={"green"} />,
 };
 
 const classSelector = {

@@ -1,0 +1,77 @@
+{
+  "ads": [
+    {
+      "id": 807480250823081,
+      "title": "ad 1 Evergrip Jump Rope",
+      "description": "ad 1 description",
+      "images": [
+        {
+          "secure_url": "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
+          "public_id": "6558697h99fcnr3ijkc"
+        },
+        {
+          "secure_url": "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
+          "public_id": "6558697h99fcnr3ijkc"
+        }
+      ],
+      "url": "AdMockups.com",
+      "productName": "Evergrip Jump Rope"
+    },
+    {
+      "id": 807480250823082,
+      "title": "ad 2 Evergrip Jump Rope",
+      "description": "ad 2 description",
+      "images": [
+        {
+          "secure_url": "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
+          "public_id": "6558697h99fcnr3ijkc"
+        }
+      ],
+      "url": "AdMockups.com",
+      "productName": "Evergrip Jump Rope"
+    },
+    {
+      "id": 807480250823083,
+      "title": "ad 3 Evergrip Jump Rope",
+      "description": "ad 3 description",
+      "images": [
+        {
+          "secure_url": "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
+          "public_id": "6558697h99fcnr3ijkc"
+        },
+        {
+          "secure_url": "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
+          "public_id": "6558697h99fcnr3ijkc"
+        }
+      ],
+      "url": "AdMockups.com",
+      "productName": "Evergrip Jump Rope"
+    },
+    {
+      "id": 807480250823084,
+      "title": "ad 4 Evergrip Jump Rope",
+      "description": "ad 4 description",
+      "images": [
+        {
+          "secure_url": "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
+          "public_id": "6558697h99fcnr3ijkc"
+        }
+      ],
+      "url": "AdMockups.com",
+      "productName": "Evergrip Jump Rope"
+    },
+    {
+      "id": 807480250823085,
+      "title": "ad 5 Evergrip Jump Rope",
+      "description": "ad 5 description",
+      "images": [
+        {
+          "secure_url": "https://res.cloudinary.com/estefanodi2009/image/upload/v1626719135/picture_not_available_400-300.png",
+          "public_id": "6558697h99fcnr3ijkc"
+        }
+      ],
+      "url": "AdMockups.com",
+      "productName": "Evergrip Jump Rope"
+    }
+  ]
+}

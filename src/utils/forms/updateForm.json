@@ -13,6 +13,12 @@
       "placeholder": "Type url here..."
     },
     {
+      "name": "productName",
+      "inputType": "text",
+      "isTextArea": false,
+      "placeholder": "Type product name here..."
+    },
+    {
       "name": "description",
       "inputType": "text",
       "isTextArea": true,
