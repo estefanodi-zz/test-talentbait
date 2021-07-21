@@ -8,7 +8,7 @@ export default function Products({ products }) {
   return (
     <div className="products-container">
       {products.map((pr) => (
-        <Product {...pr} />
+        <Product key={pr.productName} {...pr} />
       ))}
     </div>
   );

@@ -10,7 +10,7 @@
 }
 
 .card {
-  height: 50vh;
+  height: 55vh;
   border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
@@ -41,11 +41,12 @@
   width: 100%;
   top: 100%;
   left: 0;
-  background-color: rgb(245, 245, 245);
+  background-color: white;
   padding: 5%;
   box-sizing: border-box;
   text-align: justify;
   border: 1px solid #ddd;
+  line-height: 1.5rem;
 }
 
 .card-footer {
@@ -55,4 +56,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
+}
+
+.card-footer span{
+  font-size: 1.3rem;
 }

@@ -1,4 +1,3 @@
-// import { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Reflux from "reflux";
 //* ================  PAGES  =================
@@ -16,7 +15,7 @@ class App extends Reflux.Component {
     super(props);
     this.state = {};
     this.mapStoreToState(store, (data) => {
-      this.setState({ products: data.products, ads: data.ads });
+      return { products: data.products, ads: data.ads };
     });
   }
   componentDidMount() {
